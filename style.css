@@ -1,0 +1,158 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --play-orange: #e8952b;
+    --play-teal: #2b7a8d;
+    --play-olive: #7b8a48;
+    --play-cream: #f4d9b1;
+    --warm-cream: #fdfaef; 
+    --text-dark: #3a4b5c;
+    --text-light: #5a6b7c;
+    --white: #ffffff;
+    --line-gray: #e0e0e0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--warm-cream);
+    color: var(--text-dark);
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    background: var(--white);
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* HERO SECTION - Middle Aligned */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 650px;
+    background: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), 
+                url('pictures/Playhub_Background.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.header-logo-main {
+    max-width: 300px;
+    margin-bottom: 25px;
+}
+
+.hero-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    max-width: 850px;
+    margin: 10px auto;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+/* BUTTONS */
+.btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+}
+
+.btn {
+    padding: 18px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    min-width: 230px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    line-height: 1.4;
+    border: none;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn span {
+    font-weight: normal;
+    font-size: 0.85rem;
+    display: block;
+    opacity: 0.9;
+}
+
+.btn-orange { background: linear-gradient(to bottom, #f3925c, #e86b32); }
+.btn-teal { background: linear-gradient(to bottom, #4da3b8, #2b7a8d); }
+.btn-olive { background: linear-gradient(to bottom, #99a85d, #7b8a48); }
+.btn-cream { background: linear-gradient(to bottom, #fcebc9, #f4d9b1); color: #8a6d3b; }
+
+/* CONTENT CARDS */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* PROGRESS BAR */
+.progress-bar-container {
+    height: 12px;
+    background: var(--line-gray);
+    border-radius: 10px;
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--play-teal);
+    width: 0%;
+    transition: width 1.5s ease-in-out;
+}
+
+.ribbon {
+    display: inline-block;
+    background: #fcebc9;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #8a6d3b;
+}
