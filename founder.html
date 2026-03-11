@@ -5,6 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Founder Families | PlayHub</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* New styles for the pricing grid */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header h2 {
+            font-family: 'Fredoka', sans-serif;
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .features-list li::before {
+            content: '•';
+            position: absolute;
+            left: 5px;
+            font-weight: bold;
+        }
+
+        /* Tier Specific Colors */
+        .seed { border-top: 8px solid #7cb342; }
+        .seed h2 { color: #558b2f; }
+        .seed .btn-tier { background: #7cb342; color: white; }
+
+        .founder { border-top: 8px solid #ffb74d; background-color: #fff9f0; }
+        .founder h2 { color: #f57c00; }
+        .founder .btn-tier { background: #ffb74d; color: white; }
+
+        .builder { border-top: 8px solid #00acc1; }
+        .builder h2 { color: #00838f; }
+        .builder .btn-tier { background: #00acc1; color: white; }
+
+        .visionary { border-top: 8px solid #e57373; background-color: #fff5f5; }
+        .visionary h2 { color: #c62828; }
+        .visionary .btn-tier { background: #e57373; color: white; }
+
+        .btn-tier {
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            transition: opacity 0.2s;
+        }
+
+        .btn-tier:hover {
+            opacity: 0.9;
+        }
+
+        .most-popular {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,7 +111,7 @@
 
     <div class="container">
         <div class="card" style="text-align: center;">
-            <img src="pictures/site%20logo.jpeg" style="max-width: 150px; margin-bottom: 20px;">
+            <img src="pictures/site%20logo.jpeg" style="max-width: 150px; margin-bottom: 20px;" alt="PlayHub Logo">
             <h1 style="font-family: 'Fredoka'; color: var(--play-teal);">Founder Families</h1>
             <p>Join 30 families building the future of play in our community.</p>
             
@@ -24,7 +122,67 @@
 
             <div id="timer" class="ribbon" style="margin-top: 20px;">Loading...</div>
             
-            <a href="contact.html" class="btn btn-orange" style="width: 100%; margin-top: 30px;">BECOME A FOUNDER</a>
+            <div class="founder-grid">
+                
+                <div class="pricing-card seed">
+                    <div class="card-header">
+                        <h2>🌿 Seed Family</h2>
+                        <div class="price">$20</div>
+                    </div>
+                    <ul class="features-list">
+                        <li>Entry to one Pilot Parent & Me Play Class</li>
+                        <li>Access to upcoming pilot locations</li>
+                        <li>Invitation to join the PlayHub community</li>
+                    </ul>
+                    <a href="contact.html" class="btn-tier">Reserve Pilot Spot – $20</a>
+                </div>
+
+                <div class="pricing-card founder">
+                    <div class="card-header">
+                        <h2>⭐ Founder Family <br><span class="most-popular">(Most Popular)</span></h2>
+                        <div class="price">$60</div>
+                    </div>
+                    <ul class="features-list">
+                        <li style="color: #d32f2f; font-weight: bold;">5 Open Play Entries (Value $75)</li>
+                        <li>Entry to Birthday Party Giveaway</li>
+                        <li>Early access to PlayHub events</li>
+                        <li>Recognition as a PlayHub Founder Family</li>
+                    </ul>
+                    <a href="contact.html" class="btn-tier">Become a Founder Family – $60</a>
+                </div>
+
+                <div class="pricing-card builder">
+                    <div class="card-header">
+                        <h2>🍃 Builder Family</h2>
+                        <div class="price">$100</div>
+                    </div>
+                    <p style="font-size: 0.85rem; margin-bottom: 15px;"><em>Includes all Founder benefits + Private Playdate (Value $150)</em></p>
+                    <ul class="features-list">
+                        <li>5 Open Play Entries</li>
+                        <li>Private Playdate at your location</li>
+                        <li>Entry to Birthday Party Giveaway</li>
+                        <li>Priority event access</li>
+                    </ul>
+                    <a href="contact.html" class="btn-tier">Become a Builder Family – $100</a>
+                </div>
+
+                <div class="pricing-card visionary">
+                    <div class="card-header">
+                        <h2>🌳 Visionary Family - VIP</h2>
+                        <div class="price">$250</div>
+                    </div>
+                    <ul class="features-list">
+                        <li>5 Open Play Entries + PlayHub Birthday Party</li>
+                        <li>VIP benefits for first year</li>
+                        <li>Your children's names featured in the PlayHub trailer & website</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-bottom: 15px;">✨ <em>A few families have already joined!</em></p>
+                    <a href="contact.html" class="btn-tier">Become a Visionary Family – $250</a>
+                </div>
+
+            </div>
+
+            <p style="margin-top: 40px; font-style: italic;">Be a part of PlayHub’s beginning!</p>
         </div>
     </div>
     <script src="script.js"></script>
