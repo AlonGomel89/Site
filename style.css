@@ -173,33 +173,37 @@ nav a {
 .journey-gallery {
     display: flex;
     justify-content: center;
-    gap: 100px; /* Space between images */
-    flex-wrap: wrap; /* Responsive for mobile */
+    align-items: center;
+    /* Use gap for consistent 30px spacing */
+    gap: 30px; 
+    /* Allows items to move to next line on small screens instead of overlapping */
+    flex-wrap: wrap; 
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 /* Individual Image Containers */
 .gallery-item {
-    flex: 1;
-    min-width: 300px; /* Minimum width before stacking */
-    max-width: 380px;
-    height: 250px; /* Forces uniform height */
+    /* Use flex-basis to control size and prevent shrinking below 300px */
+    flex: 1 1 300px; 
+    max-width: 360px;
+    height: 250px; 
     overflow: hidden;
-    border-radius: 25px; /* Matches the 'good' capture rounding */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Soft drop shadow */
+    border-radius: 25px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    /* Ensure no margin interference */
+    margin: 0; 
 }
-
 .gallery-item:hover {
     transform: translateY(-5px);
 }
 
-/* Image Scaling Logic */
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This ensures the photo fills the box without stretching */
+    object-fit: cover;
     display: block;
 }
 
