@@ -173,7 +173,7 @@ nav a {
 .journey-gallery {
     display: flex;
     justify-content: center;
-    gap: 25px; /* Space between images */
+    gap: 100px; /* Space between images */
     flex-wrap: wrap; /* Responsive for mobile */
     max-width: 1200px;
     margin: 0 auto;
