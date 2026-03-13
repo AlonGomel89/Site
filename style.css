@@ -226,3 +226,19 @@ nav a {
 .btn-teal:hover {
     opacity: 0.9;
 }
+/* Responsive fix for the about-playhub section */
+@media (max-width: 768px) {
+    .about-playhub {
+        flex-direction: column; /* Stacks text and image vertically */
+        padding: 20px;
+    }
+
+    .about-image {
+        width: 100%;           /* Matches the width of the background/container */
+        max-width: 100%;       /* Prevents overflow */
+        height: 250px;         /* Match this to your gallery-item height */
+        object-fit: cover;     /* Crops the image to fit the box perfectly without stretching */
+        border-radius: 25px;   /* Matches the "good" design styling */
+        margin-top: 20px;
+    }
+}
