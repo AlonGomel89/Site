@@ -3,19 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | PlayHub</title>
+    <title>About | PlayHub Mobile</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Specific layouts for the About page to match the flyer */
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-intro-flex {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-visuals {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-visuals img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Services Grid Layout */
+        .services-title {
+            text-align: center;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--play-teal);
+            font-size: 2.2rem;
+            margin: 60px 0 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            padding: 30px;
+            border-radius: 35px;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.02);
+        }
+
+        .service-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 0;
+            font-size: 1.4rem;
+            line-height: 1.2;
+        }
+
+        .service-card .subtitle {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .service-card ul {
+            padding-left: 18px;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Color variants for cards */
+        .bg-orange { background: var(--play-orange); }
+        .bg-teal { background: var(--play-teal); }
+        .bg-olive { background: var(--play-olive); }
+        .bg-cream-dark { background: #e6cc9f; color: #5d4a2a; } /* Darker version of cream for readability */
+
+        .about-footer-note {
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            color: var(--text-light);
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-intro-flex { flex-direction: column; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html">Home</a> <a href="founder.html">Founder</a> <a href="events.html">Events</a> <a href="partner.html">Partner</a> <a href="journey.html">Journey</a> <a href="about.html">About</a> <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a> 
+        <a href="founder.html">Founder</a> 
+        <a href="events.html">Events</a> 
+        <a href="partner.html">Partner</a> 
+        <a href="journey.html">Journey</a> 
+        <a href="about.html" style="color: var(--play-orange);">About</a> 
+        <a href="contact.html">Contact</a>
     </nav>
 
     <div class="container">
-        <div class="card">
-            <h1 style="font-family: 'Fredoka'; color: var(--play-orange);">Our Mission</h1>
-            <p>Creating connection and meaningful play for families everywhere.</p>
+        <div class="about-header">
+            <h1 class="hero-title" style="color: var(--play-teal);">What is PlayHub Mobile?</h1>
+        </div>
+
+        <section class="about-intro-flex">
+            <div class="about-text">
+                <p style="font-size: 1.2rem; font-weight: bold;">PlayHub Mobile is a mobile play trailer created to bring movement, imagination, and real play back into children’s everyday spaces.</p>
+                
+                <p>We partner with preschools and communities to create joyful, screen-free play experiences that encourage movement, connection, and imagination.</p>
+                
+                <div class="ribbon" style="margin-top: 15px;">
+                    For children from crawling age through 1st grade
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-light);">
+                    Designed for daycares, preschools, early elementary programs, camps, and parent-child classes.
+                </p>
+            </div>
+            
+            <div class="about-visuals">
+                <img src="pictures/play1.jpg" alt="Child playing">
+                <img src="pictures/play2.jpg" alt="Children on trailer">
+            </div>
+        </section>
+
+        <h2 class="services-title">Services & Programs</h2>
+
+        <div class="services-grid">
+            <div class="service-card bg-orange">
+                <h3>Educational Programs</h3>
+                <span class="subtitle">Daycares, Preschools, Early Elementary & Camps</span>
+                <ul>
+                    <li>Movement-based enrichment programs</li>
+                    <li>Designed for daycares, preschools, VPK, and early elementary</li>
+                    <li>Weekly classes, short-term programs, or seasonal activities</li>
+                    <li>A great fit for summer camps and school breaks</li>
+                </ul>
+            </div>
+
+            <div class="service-card bg-teal">
+                <h3>Community & Faith-Based Organizations</h3>
+                <span class="subtitle">HOAs, Synagogues, Churches & Community Centers</span>
+                <ul>
+                    <li>Pop-up play experiences and family events</li>
+                    <li>Community gatherings, neighborhood events, and family days</li>
+                    <li>Programs hosted by synagogues, churches, and local organizations</li>
+                    <li>A welcoming, inclusive experience for children and families</li>
+                </ul>
+            </div>
+
+            <div class="service-card bg-olive">
+                <h3>Parent & Child Classes</h3>
+                <span class="subtitle">Mommy & Me / Parent & Toddler</span>
+                <ul>
+                    <li>Guided movement and play classes for parents and young children</li>
+                    <li>Designed for babies and toddlers from crawling age</li>
+                    <li>Focus on bonding, movement, and shared play</li>
+                    <li>A supportive, welcoming environment for parents and children</li>
+                </ul>
+            </div>
+
+            <div class="service-card bg-cream-dark">
+                <h3>Families, Celebrations & Inclusive Experiences</h3>
+                <span class="subtitle">Birthday parties and private group bookings</span>
+                <ul>
+                    <li>Play experiences in parks, fairs, and local events</li>
+                    <li>One-on-one or small group sessions, including adapted experiences</li>
+                    <li>Calm, respectful, and supportive environments</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="about-footer-note">
+            Each experience is thoughtfully adapted to the age, group, and setting — with safety, inclusion, and joyful movement at the heart of everything we do.
+        </p>
+
+        <div style="text-align: center; margin-bottom: 60px;">
+            <a href="contact.html" class="btn btn-teal">Book Your Experience</a>
         </div>
     </div>
+
 </body>
 </html>
