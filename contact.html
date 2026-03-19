@@ -10,83 +10,134 @@
     
     <style>
         :root {
-            --play-teal: #2fb5b4; /* Your brand teal */
+            --play-teal: #2fb5b4;
             --play-yellow: #ffcc00;
-            --bg-light: #f9fbfb;
+            --soft-gray: #f8fafa;
+            --line-gray: #e0e7e7;
             --text-dark: #333;
         }
 
         body {
-            background-color: var(--bg-light);
-            font-family: 'Inter', sans-serif; /* Fallback font */
+            background-color: var(--soft-gray);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
         }
 
-        /* Responsive wrapper for the Google Form */
-        .form-wrapper {
-            position: relative;
-            width: 100%;
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .responsive-iframe {
-            width: 100%;
-            height: 950px; /* Adjusted for Google Form length */
-            border: none;
-            display: block;
-        }
-
-        .container {
+        .contact-section {
             max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .card {
+            margin: 60px auto;
+            padding: 40px;
             background: white;
-            padding: 40px 20px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(47, 181, 180, 0.1);
-            border: 2px solid rgba(47, 181, 180, 0.05);
+            border-radius: 35px; /* Extra rounded for the brand style */
+            box-shadow: 0 10px 40px rgba(47, 181, 180, 0.12);
         }
 
-        .header-section {
+        .contact-intro {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        .header-section h1 {
+        .contact-title {
             font-family: 'Fredoka', sans-serif;
             color: var(--play-teal);
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
         }
 
-        .header-section p {
-            color: #666;
+        .contact-description {
             font-size: 1.1rem;
+            color: #666;
+            margin: 0 auto;
+            max-width: 500px;
+            line-height: 1.5;
         }
 
-        /* Mobile specific adjustments */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-left: 5px;
+        }
+
+        .form-input, .form-textarea {
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--line-gray);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--play-teal);
+            background: #f0fdfd;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background-color: var(--play-teal);
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-submit:hover {
+            background-color: #269a99;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Layout */
         @media (max-width: 600px) {
-            .container {
-                margin: 20px auto;
+            .contact-section {
+                margin: 20px 15px;
+                padding: 30px 20px;
+                border-radius: 25px;
             }
-            .card {
-                padding: 25px 15px;
-                border-radius: 20px;
-            }
-            .header-section h1 {
+            .contact-title {
                 font-size: 2rem;
             }
-            .responsive-iframe {
-                height: 1150px; /* Mobile forms stack fields, requiring more height */
+            .form-submit {
+                font-size: 1.1rem;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">Home</a> 
         <a href="founder.html">Founder</a> 
@@ -97,24 +148,44 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="container">
-        <div class="card">
-            <div class="header-section">
-                <h1>Contact Us</h1>
-                <p>Have a question about a booking or our programs? We'd love to hear from you!</p>
-            </div>
-            
-            <div class="form-wrapper">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSckhTFzHiN91Yd0xtD56kX4KHx1Y7VO_Oiw4BEvAcqmEKEUSg/viewform?embedded=true" 
-                    class="responsive-iframe"
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0">
-                    Loading…
-                </iframe>
-            </div>
+    <section class="contact-section">
+        <div class="contact-intro">
+            <h2 class="contact-title">Get in Touch</h2>
+            <p class="contact-description">
+                Fill out the form below and we'll get back to you as soon as possible.
+            </p>
         </div>
-    </div>
+
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+            <input type="hidden" name="subject" value="New Contact Form Submission from PlayHub Mobile" />
+            <input type="hidden" name="from_name" value="PlayHub Mobile Website" />
+
+            <div class="form-group-container">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input id="phone" name="phone" class="form-input" placeholder="+1 (234) 567-8900" type="text" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your event..." required></textarea>
+                </div>
+            </div>
+
+            <button class="form-submit" type="submit">Send Message</button>
+        </form>
+    </section>
+
 </body>
 </html>
