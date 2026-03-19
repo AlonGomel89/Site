@@ -6,6 +6,46 @@
     <title>Contact | PlayHub Mobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Responsive wrapper for the Google Form */
+        .form-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            /* Adjust padding-top to control aspect ratio if needed, 
+               but a fixed height works best for long forms */
+        }
+        
+        .responsive-iframe {
+            width: 100%;
+            height: 900px; /* Adjust this based on your Google Form length */
+            border: none;
+            border-radius: 15px;
+        }
+
+        /* Ensuring the card container looks great on all screens */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 15px;
+            }
+            .responsive-iframe {
+                height: 1100px; /* Mobile forms often need more height as fields stack */
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -20,25 +60,19 @@
 
     <div class="container">
         <div class="card">
-            <h1 style="font-family: 'Fredoka'; text-align: center; color: var(--play-teal);">Contact Us</h1>
-            <p style="text-align: center; margin-bottom: 30px;">Have a question about a booking or our programs? Send us a message!</p>
+            <h1 style="font-family: 'Fredoka'; text-align: center; color: var(--play-teal); margin-top: 0;">Contact Us</h1>
+            <p style="text-align: center; margin-bottom: 20px;">Have a question about a booking or our programs? Fill out the form below!</p>
             
-            <form 
-                action="https://formspree.io/f/hello.playhubmobile@gmail.com" 
-                method="POST" 
-                style="display: flex; flex-direction: column; gap: 15px;"
-            >
-                <label style="font-weight: bold; font-size: 0.9rem;">Full Name</label>
-                <input type="text" name="name" placeholder="Your Name" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--line-gray);">
-                
-                <label style="font-weight: bold; font-size: 0.9rem;">Email Address</label>
-                <input type="email" name="email" placeholder="email@example.com" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--line-gray);">
-                
-                <label style="font-weight: bold; font-size: 0.9rem;">How can we help?</label>
-                <textarea name="message" placeholder="Tell us about your event..." rows="5" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--line-gray); font-family: inherit;"></textarea>
-                
-                <button type="submit" class="btn btn-teal">SEND MESSAGE</button>
-            </form>
+            <div class="form-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSckhTFzHiN91Yd0xtD56kX4KHx1Y7VO_Oiw4BEvAcqmEKEUSg/viewform?embedded=true" 
+                    class="responsive-iframe"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
         </div>
     </div>
 </body>
