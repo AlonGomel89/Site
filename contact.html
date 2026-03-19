@@ -6,43 +6,82 @@
     <title>Contact | PlayHub Mobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --play-teal: #2fb5b4; /* Your brand teal */
+            --play-yellow: #ffcc00;
+            --bg-light: #f9fbfb;
+            --text-dark: #333;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Inter', sans-serif; /* Fallback font */
+        }
+
         /* Responsive wrapper for the Google Form */
         .form-wrapper {
             position: relative;
-            overflow: hidden;
             width: 100%;
-            /* Adjust padding-top to control aspect ratio if needed, 
-               but a fixed height works best for long forms */
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
         }
         
         .responsive-iframe {
             width: 100%;
-            height: 900px; /* Adjust this based on your Google Form length */
+            height: 950px; /* Adjusted for Google Form length */
             border: none;
-            border-radius: 15px;
+            display: block;
         }
 
-        /* Ensuring the card container looks great on all screens */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(47, 181, 180, 0.1);
+            border: 2px solid rgba(47, 181, 180, 0.05);
         }
 
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-section h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--play-teal);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile specific adjustments */
         @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+            }
             .card {
-                padding: 15px;
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+            .header-section h1 {
+                font-size: 2rem;
             }
             .responsive-iframe {
-                height: 1100px; /* Mobile forms often need more height as fields stack */
+                height: 1150px; /* Mobile forms stack fields, requiring more height */
             }
         }
     </style>
@@ -58,50 +97,24 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-  <div class="container mx-auto">
-    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-      <div class="text-center">
-        <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-          Contact Us
-        </h1>
-        <p class="text-gray-400 dark:text-gray-400">
-          Fill up the form below to send us a message.
-        </p>
-      </div>
-      <div class="m-7">
-        <form action="https://api.web3forms.com/submit" method="POST" id="form">
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-          <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-          <input type="checkbox" name="botcheck" id="" style="display: none;" />
-
-          <div class="mb-6">
-            <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full Name</label>
-            <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-          </div>
-          <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
-            <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-          </div>
-          <div class="mb-6">
-            <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
-            <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
-
-            <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
-          </div>
-          <div class="mb-6">
-            <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-              Send Message
-            </button>
-          </div>
-          <p class="text-base text-center text-gray-400" id="result"></p>
-        </form>
-      </div>
+    <div class="container">
+        <div class="card">
+            <div class="header-section">
+                <h1>Contact Us</h1>
+                <p>Have a question about a booking or our programs? We'd love to hear from you!</p>
+            </div>
+            
+            <div class="form-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSckhTFzHiN91Yd0xtD56kX4KHx1Y7VO_Oiw4BEvAcqmEKEUSg/viewform?embedded=true" 
+                    class="responsive-iframe"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </body>
 </html>
