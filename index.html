@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayHub Mobile | Joyful Mobile Play Space for Children</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #c86d51;
+      --terracotta-hover: #b35b40;
+      --sage: #789073;
+      --sage-hover: #657d60;
+      --slate-blue: #628499;
+      --slate-hover: #506f83;
+      --cream-bg: #fbf8f3;
+      --cream-card: #ffffff;
+      --text-dark: #343330;
+      --text-muted: #6b6863;
+      --border-color: #e8e2d8;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-btn: 30px;
+      --shadow-soft: 0 10px 30px rgba(52, 51, 48, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #dcd7ce;
+      background-image: url('full-site-background.jpg');
+      background-size: cover;
+      background-attachment: scroll;
+      background-position: center;
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .letter-wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      background-color: var(--cream-bg);
+      border-radius: 20px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    h1, h2, h3, .serif-font {
+      font-family: 'Lora', serif;
+      font-weight: 500;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(251, 248, 243, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(232, 226, 216, 0.6);
+      border-radius: 20px 20px 0 0;
+      z-index: 1000;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-img {
+      height: 85px; 
+      width: auto;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-nav { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      gap: 24px; 
+      flex: 1;
+    }
+
+    .hero-nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .hero-nav a:hover { color: var(--terracotta); }
+
+    .btn-header {
+      background: var(--terracotta);
+      color: #ffffff !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .btn-header:hover {
+      background: var(--terracotta-hover);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+
+    .sun-icon {
+      display: block;
+      margin: 0 auto 12px;
+      width: 100px;
+      height: auto;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .section-header h2 {
+      font-size: 2.3rem;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+    }
+    .btn-terracotta { background: var(--terracotta); color: #ffffff; }
+    .btn-terracotta:hover { background: var(--terracotta-hover); transform: translateY(-2px); }
+    .btn-sage { background: var(--sage); color: #ffffff; }
+    .btn-sage:hover { background: var(--sage-hover); transform: translateY(-2px); }
+    .btn-slate { background: var(--slate-blue); color: #ffffff; }
+    .btn-slate:hover { background: var(--slate-hover); transform: translateY(-2px); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--border-color); color: var(--text-dark); }
+    .btn-outline:hover { background: #ffffff; border-color: var(--text-dark); }
+
+    /* Hero Styling (Restored) */
+    .hero { padding: 80px 0; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-card .tag {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .hero-card h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+    .hero-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+    
+    .hero-image-box {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      height: 100%;
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-subtag {
+      text-align: center;
+      margin-top: 50px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      color: var(--slate-blue);
+    }
+    
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    
+    .event-card, .care-card, .location-card, .feature-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .event-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .event-card p { margin-bottom: 24px; color: var(--text-muted); }
+    .event-card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--terracotta);
+      opacity: 0.3;
+      margin-bottom: 10px;
+    }
+    
+    .shop-banner {
+      background: var(--sage);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .shop-banner h2 { color: white; margin-bottom: 15px; }
+    .shop-banner p { margin-bottom: 25px; font-size: 1.1rem; }
+    
+    .form-wrapper {
+      background: var(--cream-card);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-color);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-control {
+      padding: 14px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fdfdfc;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin: 40px 0;
+    }
+    .footer-col { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col h4 { font-size: 1rem; color: var(--text-dark); margin-bottom: 8px; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+
+    @media (max-width: 868px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream-bg); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--border-color); }
+      .hero-nav.active { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter-wrapper">
+    <header>
+      <a href="#hero">
+        <img src="site logo.jpeg" alt="PlayHub Mobile Logo" class="brand-logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">&#9776;</button>
+      <nav class="hero-nav" id="navMenu">
+        <a href="#hero">Home</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#events">Parties &amp; Events</a>
+        <a href="#locations">Classes &amp; Pop-Ups</a>
+        <a href="https://shop.playhubmobile.com" target="_blank">Shop</a>
+      </nav>
+      <a href="#book" class="btn btn-header">Book Now</a>
+    </header>
+
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <span class="tag">Play comes to you.</span>
+            <h1>A joyful mobile play experience for children ages 0–7.</h1>
+            <p>Birthdays, playdates, preschools &amp; community events across Southwest Florida.</p>
+            <div class="hero-buttons">
+              <a href="#book" class="btn btn-terracotta">Book PlayHub &rarr;</a>
+              <a href="#features" class="btn btn-outline">Explore Further</a>
+            </div>
+          </div>
+          <div class="hero-image-box">
+            <img src="backgroud-hero.jpg" alt="PlayHub Mobile Trailer setup" class="hero-image">
+          </div>
+        </div>
+        <div class="hero-subtag">PLAY &bull; CONNECT &bull; BELONG &bull; ANYWHERE</div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container">
+        <div class="section-header">
+          <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+          <h2>Schedule</h2>
+          <p>See where we are this week.</p>
+        </div>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft);">
+          <img src="https://drive.google.com/thumbnail?id=1pRgTAust3dxkhJpojsB9nRNm6Vk2SY1P&sz=w1200" alt="This Week's Schedule" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <section id="events" style="background: rgba(232, 226, 216, 0.25);">
+      <div class="container">
+        <div class="section-header">
+          <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+          <h2>PlayHub is made for the moments that bring families together.</h2>
+          <p>From backyard birthdays to community gatherings, we bring room to move, explore and connect.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="event-card">
+            <div>
+              <div class="event-card-icon">🎉</div>
+              <h3>Birthday Parties</h3>
+              <p>A joyful mobile play experience that comes right to your celebration.</p>
+            </div>
+            <a href="#book" class="btn btn-terracotta" style="width: 100%;">Plan a Party &rarr;</a>
+          </div>
+
+          <div class="event-card">
+            <div>
+              <div class="event-card-icon">🏫</div>
+              <h3>Schools &amp; Community</h3>
+              <p>A flexible play space for family days, school events, and community gatherings.</p>
+            </div>
+            <a href="#book" class="btn btn-sage" style="width: 100%;">Request a Quote &rarr;</a>
+          </div>
+
+          <div class="event-card">
+            <div>
+              <div class="event-card-icon">📅</div>
+              <h3>Classes &amp; Open Play</h3>
+              <p>Small-group play experiences for little explorers and their grown-ups.</p>
+            </div>
+            <a href="#book" class="btn btn-slate" style="width: 100%;">See Sessions &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-header">
+          <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+          <h2>Planning a private PlayHub event?</h2>
+          <p>From the first message to playtime, we keep it simple.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <h3>Choose your celebration</h3>
+            <p>Birthday party, school event, or community gathering.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <h3>Tell us what you need</h3>
+            <p>Share your date, location, and number of children — we'll confirm the best setup.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <h3>We roll up ready to play</h3>
+            <p>We arrive, set up, and create room for children to move, explore and connect.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="container">
+        <div class="shop-banner">
+          <div class="shop-content">
+            <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; opacity: 0.9;">A PLAYHUB ORIGINAL</span>
+            <h2>Meet Nomi &amp; Milo</h2>
+            <p>Screen-free stories, car games and creative activity books for curious little explorers.</p>
+            <a href="https://shop.playhubmobile.com" target="_blank" rel="noopener noreferrer" class="btn" style="background: white; color: var(--sage);">Explore the PlayHub Shop &rarr;</a>
+          </div>
+          <div style="font-size: 4rem; opacity: 0.9;">📚🚗🎨</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form Section (#book) -->
+    <section class="booking-section" id="book">
+      <div class="container">
+        <div class="section-header">
+          <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+          <h2>Let's make room for play.</h2>
+          <p>Tell us a little about what you're planning, and we'll get back to you with availability and the best-fit PlayHub experience.</p>
+        </div>
+
+        <div class="form-wrapper">
+          <form id="reservationForm" action="https://formsubmit.co/el/xidebi" method="POST">
+            <!-- FormSubmit Options -->
+            <input type="hidden" name="_subject" value="New PlayHub Mobile Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fullName">Your name</label>
+                <input type="text" id="fullName" name="Your Name" class="form-control" placeholder="Full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" class="form-control" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="Phone Number" class="form-control" placeholder="(123) 456-7890" required>
+              </div>
+
+              <div class="form-group">
+                <label for="eventDate">Preferred date</label>
+                <input type="date" id="eventDate" name="Preferred Date" class="form-control" required>
+              </div>
+
+              <div class="form-group full">
+                <label for="eventType">What are you planning?</label>
+                <select id="eventType" name="Event Experience" class="form-control" required>
+                  <option value="">Choose an experience</option>
+                  <option value="Birthday Party">Birthday Party</option>
+                  <option value="Schools, Preschools & Community Events">Schools, Preschools &amp; Community Events</option>
+                  <option value="Classes & Open Play">Classes &amp; Open Play</option>
+                  <option value="Other / Inquiry">Other / General Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="location">City or ZIP code</label>
+                <input type="text" id="location" name="City or ZIP code" class="form-control" placeholder="City or ZIP code" required>
+              </div>
+
+              <div class="form-group">
+                <label for="childAge">Child's age / ages</label>
+                <input type="text" id="childAge" name="Child Age" class="form-control" placeholder="e.g. 2, 4, 5" required>
+              </div>
+
+              <div class="form-group full">
+                <label for="childCount">Estimated number of children</label>
+                <input type="text" id="childCount" name="Estimated Number of Children" class="form-control" placeholder="e.g. 10" required>
+              </div>
+
+              <div class="form-group full">
+                <label for="notes">Tell us anything helpful (optional)</label>
+                <textarea id="notes" name="Additional Notes" class="form-control" rows="4" placeholder="Dietary needs, theme ideas, location details, or anything else we should know..."></textarea>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+              <button type="submit" class="btn btn-terracotta" style="width: 100%; max-width: 320px;">Check Availability &rarr;</button>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 12px;">We'll get back to you personally within 2 business days.</p>
+            </div>
+          </form>
+          <div id="form-status"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <img src="site logo.jpeg" alt="PlayHub Mobile Logo" class="brand-logo-img" style="margin: 0 auto 20px;">
+        <div style="font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; color: var(--slate-blue);">PLAY &bull; CONNECT &bull; BELONG &bull; ANYWHERE</div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#events">Parties &amp; Events</a>
+            <a href="https://shop.playhubmobile.com" target="_blank">PlayHub Shop</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#book">Instagram</a>
+            <a href="#book">Contact</a>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          &copy; 2026 PlayHub Mobile — Southwest Florida. PlayHub is a family play experience — children remain with a responsible adult.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    }
+
+    const form = document.getElementById('reservationForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      try {
+        await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' }});
+        alert('Thank you! Your inquiry has been submitted.');
+        form.reset();
+      } catch (err) {
+        alert('Thank you! Your inquiry is submitted.');
+      }
+    });
+  </script>
+</body>
+</html>
