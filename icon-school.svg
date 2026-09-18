@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Soft Organic Background Blob -->
+  <path d="M48 20 C66 18, 78 30, 82 48 C86 66, 70 82, 52 82 C34 82, 22 68, 20 50 C18 32, 30 22, 48 20 Z" fill="#ebf0ea" />
+
+  <!-- Main School Center Structure -->
+  <path d="M50 36 L34 50 L34 78 L66 78 L66 50 Z" fill="none" stroke="#789073" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Flagpole & Flag -->
+  <line x1="50" y1="36" x2="50" y2="20" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M50 22 L62 26 L50 30 Z" fill="none" stroke="#789073" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Diamond Clock/Window -->
+  <polygon points="50,45 55,51 50,57 45,51" fill="none" stroke="#789073" stroke-width="2.5" stroke-linejoin="round" />
+
+  <!-- Door -->
+  <rect x="45" y="65" width="10" height="13" fill="none" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Left Wing -->
+  <path d="M34 56 L22 56 L22 78 L34 78" fill="none" stroke="#789073" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="28" y1="62" x2="28" y2="67" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="28" y1="71" x2="28" y2="76" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Right Wing -->
+  <path d="M66 56 L78 56 L78 78 L66 78" fill="none" stroke="#789073" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="72" y1="62" x2="72" y2="67" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="72" y1="71" x2="72" y2="76" stroke="#789073" stroke-width="2.5" stroke-linecap="round" />
+</svg>
