@@ -338,6 +338,87 @@
 		display: none; /* Hide horizontal line on mobile stack */
 	  }
 	}
+
+	/* Features / Play Pillars Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.feature-card {
+  background: var(--cream-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(52, 51, 48, 0.08);
+}
+
+/* Specific Border Highlights per Card */
+.feature-card.move { border-color: var(--border-color); }
+.feature-card.build { border-color: #f3c7ba; }
+.feature-card.world { border-color: #cde1ee; }
+.feature-card.sensory { border-color: var(--border-color); }
+
+.feature-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Specific Header Colors */
+.feature-card.move h3 { color: #5a7556; }      /* Sage Green */
+.feature-card.build h3 { color: var(--terracotta); } /* Terracotta */
+.feature-card.world h3 { color: var(--slate-blue); } /* Slate Blue */
+.feature-card.sensory h3 { color: #8a6299; }    /* Soft Purple */
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.features-footer-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Responsive Grid for Tablets & Mobile */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+	  
     .shop-banner {
       background: var(--sage);
       color: white;
@@ -434,6 +515,90 @@
         <div class="hero-subtag">PLAY &bull; CONNECT &bull; BELONG &bull; ANYWHERE</div>
       </div>
     </section>
+
+	  <section id="features">
+  <div class="container">
+    <div class="section-header">
+      <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+      <h2>One trailer, a whole world of play.</h2>
+      <p>Thoughtfully designed for little explorers ages 0–7 — with room to move, imagine, discover and connect.</p>
+    </div>
+
+    <div class="features-grid">
+      <!-- 1. Move & Balance -->
+      <div class="feature-card move">
+        <div class="feature-icon-wrapper">
+          <svg viewBox="0 0 80 80" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="18" r="7" fill="#5a7556" />
+            <path d="M42 32 L30 40 M42 32 L56 36 L66 28 M42 32 L44 50 L32 70 M44 50 L58 66" stroke="#5a7556" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M22 62 Q 25 58, 28 64" stroke="#5a7556" stroke-width="3" stroke-linecap="round" fill="none" />
+          </svg>
+        </div>
+        <h3>Move &amp; Balance</h3>
+        <p>Active play that builds gross motor skills, climb and explore.</p>
+      </div>
+
+      <!-- 2. Build & Discover -->
+      <div class="feature-card build">
+        <div class="feature-icon-wrapper">
+          <svg viewBox="0 0 80 80" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Top Cube -->
+            <polygon points="40,12 56,21 40,30 24,21" fill="#e07a5f" />
+            <polygon points="24,21 40,30 40,48 24,39" fill="#c86d51" />
+            <polygon points="40,30 56,21 56,39 40,48" fill="#b05c43" />
+            <!-- Bottom Left Cube -->
+            <polygon points="24,41 40,50 24,59 8,50" fill="#e07a5f" />
+            <polygon points="8,50 24,59 24,77 8,68" fill="#c86d51" />
+            <polygon points="24,59 40,50 40,68 24,77" fill="#b05c43" />
+            <!-- Bottom Right Cube -->
+            <polygon points="56,41 72,50 56,59 40,50" fill="#e07a5f" />
+            <polygon points="40,50 56,59 56,77 40,68" fill="#c86d51" />
+            <polygon points="56,59 72,50 72,68 56,77" fill="#b05c43" />
+          </svg>
+        </div>
+        <h3>Build &amp; Discover</h3>
+        <p>Open-ended tactile play, building blocks, problem-solving and creative thinking.</p>
+      </div>
+
+      <!-- 3. Little World Play -->
+      <div class="feature-card world">
+        <div class="feature-icon-wrapper">
+          <svg viewBox="0 0 80 80" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Train Engine Body -->
+            <rect x="18" y="38" width="34" height="22" rx="3" fill="#628499" />
+            <rect x="42" y="24" width="22" height="36" rx="3" fill="#628499" />
+            <rect x="40" y="20" width="26" height="5" rx="2" fill="#506f83" />
+            <rect x="24" y="28" width="6" height="10" fill="#506f83" />
+            <rect x="22" y="25" width="10" height="4" rx="1" fill="#506f83" />
+            <rect x="47" y="30" width="12" height="12" rx="2" fill="#ffffff" />
+            <!-- Wheels -->
+            <circle cx="28" cy="63" r="7" fill="#343330" stroke="#ffffff" stroke-width="2" />
+            <circle cx="52" cy="63" r="7" fill="#343330" stroke="#ffffff" stroke-width="2" />
+          </svg>
+        </div>
+        <h3>Little World Play</h3>
+        <p>Cars, trains, imaginative play and world-building for big tiny stories.</p>
+      </div>
+
+      <!-- 4. Sensory & Reset -->
+      <div class="feature-card sensory">
+        <div class="feature-icon-wrapper">
+          <svg viewBox="0 0 80 80" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 60 C 15 35, 35 15, 60 20 C 65 45, 45 65, 20 60 Z" fill="#8a6299" />
+            <path d="M22 58 Q 40 40, 58 22" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+            <path d="M38 42 Q 30 36, 28 32" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+            <path d="M44 36 Q 52 28, 54 24" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+            <path d="M42 44 Q 48 52, 52 54" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3>Sensory &amp; Reset</h3>
+        <p>A calm space to focus, soothe, explore and regulate at your own pace.</p>
+      </div>
+    </div>
+
+    <p class="features-footer-note">Every PlayHub setup is thoughtfully arranged for the children and space in front of us.</p>
+  </div>
+</section>
 
     <section id="schedule">
       <div class="container">
