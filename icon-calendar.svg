@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Soft Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="#fdeee9" />
+  
+  <!-- Calendar Base -->
+  <rect x="28" y="32" width="44" height="42" rx="8" fill="none" stroke="#c86d51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="28" y1="44" x2="72" y2="44" stroke="#c86d51" stroke-width="3" />
+  
+  <!-- Binder Rings -->
+  <line x1="40" y1="26" x2="40" y2="34" stroke="#c86d51" stroke-width="3" stroke-linecap="round" />
+  <line x1="60" y1="26" x2="60" y2="34" stroke="#c86d51" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Heart Icon -->
+  <path d="M50 59 C47 54, 40 54, 40 58 C40 62, 50 67, 50 67 C50 67, 60 62, 60 58 C60 54, 53 54, 50 59 Z" fill="#c86d51" />
+  
+  <!-- Sparkles -->
+  <line x1="20" y1="36" x2="24" y2="38" stroke="#c86d51" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="18" y1="52" x2="23" y2="52" stroke="#c86d51" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="80" y1="36" x2="76" y2="38" stroke="#c86d51" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="82" y1="52" x2="77" y2="52" stroke="#c86d51" stroke-width="2.5" stroke-linecap="round" />
+</svg>
