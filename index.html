@@ -6,7 +6,6 @@
   <title>PlayHub Mobile | Joyful Mobile Play Space for Children</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -244,20 +243,100 @@
     .event-card p { margin-bottom: 24px; color: var(--text-muted); }
     .event-card-icon { font-size: 2.5rem; margin-bottom: 16px; }
     
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      text-align: center;
-    }
-    .step-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--terracotta);
-      opacity: 0.3;
-      margin-bottom: 10px;
-    }
-    
+	/* Process Section Container */
+	.process-grid {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	  gap: 20px;
+	  text-align: center;
+	  position: relative;
+	  max-width: 900px;
+	  margin: 0 auto;
+	}
+	
+	/* Connecting Line Across Steps */
+	.process-grid::before {
+	  content: '';
+	  position: absolute;
+	  top: 96px; /* Positions line behind the numbered circles */
+	  left: 15%;
+	  right: 15%;
+	  height: 2px;
+	  background-color: var(--border-color);
+	  z-index: 1;
+	}
+	
+	.process-step {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  position: relative;
+	  z-index: 2;
+	}
+	
+	/* Soft-Colored Circle Behind Icons */
+	.step-icon-bg {
+	  width: 80px;
+	  height: 80px;
+	  border-radius: 50%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  margin-bottom: -16px; /* Overlaps icon background with number badge */
+	  position: relative;
+	  z-index: 1;
+	}
+	.step-icon {
+	  width: 36px;
+	  height: 36px;
+	  object-fit: contain;
+	}	
+	
+	/* Circular Number Badge */
+	.step-number {
+	  width: 36px;
+	  height: 36px;
+	  border-radius: 50%;
+	  color: #ffffff;
+	  font-size: 0.85rem;
+	  font-weight: 700;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  margin-bottom: 20px;
+	  position: relative;
+	  z-index: 3;
+	}
+    /* Badge Fill Colors matching theme */
+	.process-step:nth-child(1) .step-number { background-color: var(--terracotta); }
+	.process-step:nth-child(2) .step-number { background-color: var(--sage); }
+	.process-step:nth-child(3) .step-number { background-color: var(--slate-blue); }
+
+	/* Typography Formatting */
+	.process-step h3 {
+	  font-family: 'Lora', serif;
+	  font-size: 1.25rem;
+	  margin-bottom: 8px;
+	  color: var(--text-dark);
+	}
+
+	.process-step p {
+	  font-size: 0.95rem;
+	  color: var(--text-muted);
+	  max-width: 240px;
+	  margin: 0 auto;
+	}
+
+	/* Responsive adjustments for mobile */
+	@media (max-width: 768px) {
+	  .process-grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	  }
+	  .process-grid::before {
+		display: none; /* Hide horizontal line on mobile stack */
+	  }
+	}
     .shop-banner {
       background: var(--sage);
       color: white;
@@ -328,6 +407,7 @@
         <a href="#hero">Home</a>
         <a href="#schedule">Schedule</a>
         <a href="#events">Parties &amp; Events</a>
+		<a href="#process">Process</a>
         <a href="#locations">Classes &amp; Pop-Ups</a>
         <a href="https://shop.playhubmobile.com" target="_blank">Shop</a>
       </nav>
@@ -343,7 +423,7 @@
             <p>Birthdays, playdates, preschools &amp; community events across Southwest Florida.</p>
             <div class="hero-buttons">
               <a href="#book" class="btn btn-terracotta">Book PlayHub &rarr;</a>
-              <a href="#features" class="btn btn-outline">Explore Further</a>
+              <a href="#process" class="btn btn-outline">Explore Further</a>
             </div>
           </div>
           <div class="hero-image-box">
@@ -406,33 +486,51 @@
       </div>
     </section>
 
-    <section id="process">
-      <div class="container">
-        <div class="section-header">
-          <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
-          <h2>Planning a private PlayHub event?</h2>
-          <p>From the first message to playtime, we keep it simple.</p>
-        </div>
+<section id="process">
+  <div class="container">
+    <div class="section-header">
+      <img src="Sun_logo.png" alt="Sun Logo" class="sun-icon">
+      <h2>Planning a private PlayHub event?</h2>
+      <p>From the first message to playtime, we keep it simple.</p>
+    </div>
 
-        <div class="process-grid">
-          <div class="process-step">
-            <div class="step-number">01</div>
-            <h3>Choose your celebration</h3>
-            <p>Birthday party, school event, or community gathering.</p>
-          </div>
-          <div class="process-step">
-            <div class="step-number">02</div>
-            <h3>Tell us what you need</h3>
-            <p>Share your date, location, and number of children — we'll confirm the best setup.</p>
-          </div>
-          <div class="process-step">
-            <div class="step-number">03</div>
-            <h3>We roll up ready to play</h3>
-            <p>We arrive, set up, and create room for children to move, explore and connect.</p>
-          </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-icon-bg">
+          <!-- Replace icon-calendar.svg with your image path -->
+          <img src="icon-calendar.svg" alt="Choose date" class="step-icon">
         </div>
+        <div class="step-number">01</div>
+        <h3>Choose your celebration</h3>
+        <p>Birthday party, school event, or community gathering.</p>
       </div>
-    </section>
+
+      <div class="process-step">
+        <div class="step-icon-bg">
+          <!-- Replace icon-van.svg with your image path -->
+          <img src="icon-van.svg" alt="Tell us details" class="step-icon">
+        </div>
+        <div class="step-number">02</div>
+        <h3>Tell us what you need</h3>
+        <p>Share your date, location, and number of children — we'll confirm the best setup.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-icon-bg">
+          <!-- Replace icon-heart.svg with your image path -->
+          <img src="icon-heart.svg" alt="Ready to play" class="step-icon">
+        </div>
+        <div class="step-number">03</div>
+        <h3>We roll up ready to play</h3>
+        <p>We arrive, set up, and create room for children to move, explore and connect.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#book" class="btn btn-outline" style="border-radius: 30px; padding: 12px 32px;">Check Availability &rarr;</a>
+    </div>
+  </div>
+</section>
 
     <section id="shop">
       <div class="container">
