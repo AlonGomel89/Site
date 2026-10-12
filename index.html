@@ -28,7 +28,12 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html, body { 
+      scroll-behavior: smooth; 
+      overflow-x: hidden; 
+      width: 100%;
+      max-width: 100%;
+    }
     
     /* Desktop Default Styles (index_good) */
     body {
@@ -445,68 +450,75 @@
     .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 1rem; }
 
     /* Mobile Responsive Overrides (index layout triggered on screens < 900px) */
-    @media (max-width: 900px) {
-      body { padding: 0; font-size: 20px; } /* 150% scaled font size */
-      .letter-wrapper { border-radius: 0; box-shadow: none; }
-      header { padding: 1.5rem 1rem; border-radius: 0; }
-      
-      section { padding: 110px 0; } /* Longer site spacing */
+@media (max-width: 900px) {
+  body { padding: 0; font-size: 18px; width: 100%; max-width: 100%; }
+  .letter-wrapper { border-radius: 0; box-shadow: none; width: 100%; max-width: 100%; margin: 0; }
+  header { padding: 1.5rem 1rem; border-radius: 0; width: 100%; }
+  
+  section { padding: 90px 0; width: 100%; }
+  .container { padding: 0 16px; width: 100%; max-width: 100%; }
 
-      /* Hero: Trailer picture under the text card */
-      .hero { padding: 100px 0; }
-      .hero-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: stretch;
-      }
-      .hero-card { text-align: center; padding: 50px 30px; }
-      .hero-card h1 { font-size: 3.1rem; }
-      .hero-card p { font-size: 1.35rem; }
-      .hero-buttons { justify-content: center; }
-      .hero-image { min-height: 400px; max-height: 550px; }
+  /* Hero: Stacked layout with image under text */
+  .hero { padding: 80px 0; width: 100%; }
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero-card { text-align: center; padding: 40px 20px; width: 100%; }
+  .hero-card h1 { font-size: 2.5rem; }
+  .hero-card p { font-size: 1.2rem; }
+  .hero-buttons { justify-content: center; }
+  .hero-image-box { width: 100%; }
+  .hero-image { min-height: 350px; max-height: 480px; width: 100%; }
 
-      /* Features: 2 tiles every line (2 columns) */
-      .features-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-      .feature-card { padding: 35px 20px; }
-      .feature-card h3 { font-size: 1.5rem; }
+  /* 2nd Section Features: 2 tiles per line */
+  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; }
+  .feature-card { padding: 24px 12px; width: 100%; }
+  .feature-card h3 { font-size: 1.2rem; }
+  .feature-card p { font-size: 0.95rem; }
 
-      /* Events: 1 tile every line (single column) */
-      .grid-3 { display: grid; grid-template-columns: 1fr; gap: 35px; max-width: 800px; margin: 0 auto; }
-      .event-card { padding: 40px 30px; }
-      .event-card h3 { font-size: 1.8rem; }
+  /* 3rd Section Events: 1 tile per line */
+  .grid-3 { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 100%; margin: 0; width: 100%; }
+  .event-card { padding: 35px 20px; width: 100%; }
+  .event-card h3 { font-size: 1.5rem; }
 
-      /* Process */
-      .process-grid { grid-template-columns: 1fr; gap: 50px; }
-      .process-grid::before { display: none; }
+  /* Process Section */
+  .process-grid { grid-template-columns: 1fr; gap: 40px; width: 100%; max-width: 100%; }
+  .process-grid::before { display: none; }
+  .process-step { width: 100%; }
 
-      /* Shop Banner */
-      .shop-banner { flex-direction: column; text-align: center; padding: 50px 30px; }
-      .shop-banner h2 { font-size: 2.6rem; }
+  /* Shop Banner */
+  .shop-banner { flex-direction: column; text-align: center; padding: 40px 20px; width: 100%; }
+  .shop-banner h2 { font-size: 2.1rem; }
 
-      /* Form: One field in every line */
-      .form-grid { grid-template-columns: 1fr; gap: 25px; }
-      .form-wrapper { padding: 50px 30px; }
-      .form-group label { font-size: 1.15rem; }
-      .form-control {
-        font-size: 1.15rem;
-        padding: 18px 20px;
-      }
-      
-      .hero-nav { 
-        display: none; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        right: 0; 
-        background: var(--cream-bg); 
-        flex-direction: column; 
-        padding: 30px; 
-        border-bottom: 1px solid var(--border-color); 
-      }
-      .hero-nav.active { display: flex; }
-      .nav-toggle { display: block; font-size: 2.2rem; }
-    }
+  /* Form: One field per line with compact, properly sized text boxes */
+  .form-grid { grid-template-columns: 1fr; gap: 20px; width: 100%; }
+  .form-wrapper { padding: 40px 20px; width: 100%; max-width: 100%; }
+  .form-group label { font-size: 1.05rem; }
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on mobile browsers */
+    padding: 12px 14px; /* Reduced box height/padding so it's not too big */
+    width: 100%;
+  }
+  
+  .hero-nav { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    background: var(--cream-bg); 
+    flex-direction: column; 
+    padding: 25px; 
+    border-bottom: 1px solid var(--border-color); 
+    width: 100%;
+  }
+  .hero-nav.active { display: flex; }
+  .nav-toggle { display: block; font-size: 2rem; }
+}
   </style>
 </head>
 <body>
